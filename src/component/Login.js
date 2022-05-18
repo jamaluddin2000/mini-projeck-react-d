@@ -1,7 +1,13 @@
 import {useEffect, useState} from 'react'
 import {gql, useLazyQuery} from '@apollo/client'
 import { useNavigate } from 'react-router-dom';
-import LoginStyle from './pages/LoginStyle'
+import LoginStyle from './pages/LoginStyle';
+import Cookies from 'universal-cookie'; 
+import Loading  from "./pages/Loading"
+
+
+
+
 
 const QueryLogin =gql`
 query MyQuery($username: String , $password: String ) {
@@ -17,10 +23,11 @@ export default function Login() {
     const [nama, setNama] = useState("")
     const [password, setPassword] = useState("")
     let navigate = useNavigate()
+    const cookies = new Cookies()
     
     useEffect(() => {
       if (!!data?.Login.length && !loading){
-        console.log("datanya",data)
+        cookies.set("auth",true,{path: "/"})
         navigate("/Home")
       }
     },[data,loading]) 
@@ -38,7 +45,12 @@ export default function Login() {
     }
 
    
-    if (loading) return "loading...";
+    if (loading) return(
+      <div>
+      <Loading />
+      <div className='text-center text-6xl '>Tunggu ya!! Lagi Loading...</div>
+      </div>
+    ) 
     if (error) return `Error! ${error}`;
   
 

@@ -1,29 +1,32 @@
 import React from 'react'
-import imgOrang from "../style/img/laundry.png";
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
   return (
     <>
-    <nav class="bg-purple-200 text-white  ">
+    <nav class="bg-purple-200 text-white   ">
 			<div class=" mx-auto ">
 			
 					<div class="flex justify-between px-10">
 						<div>
 							{/* <!-- Website Logo --> */}
-							<a href="#" class="flex items-center py-4 px-2">
+							<Link to="/Home" class="flex items-center py-4 px-2 cursor-pointer hover:scale-125"><h1 className='text-4xl font-bold'>
+                                    E-LOundry
+                                </h1></Link>
+							{/* <a href="" class="flex items-center py-4 px-2">
                                 <h1 className='text-4xl font-bold'>
                                     E-LOundry
                                 </h1>
-							</a>
+							</a> */}
 						</div>
 
 						{/* <!-- Primary Navbar items --> */}
 						<div class="hidden md:flex items-center space-x-1">
-							<a href="" class="py-4 px-20  text-white border-b-4 border-green-500 font-semibold ">Home</a>
-							<a href="" class="py-4 px-20 text-white font-semibold hover:text-green-500 transition duration-300">Services</a>
-							<a href="" class="py-4 px-20 text-white font-semibold hover:text-green-500 transition duration-300">Status</a>
-							<a href="" class="py-4 px-20 text-white font-semibold hover:text-green-500 transition duration-300">About</a>
+							<Link to='/Home' class="py-4 px-20 text-2xl cursor-pointer hover:scale-125 text-white hover:text-green-500  border-green-500 font-semibold ">Home</Link>
+							<Link to='/Service' class="py-4 px-20 text-2xl cursor-pointer hover:scale-125 text-white font-semibold hover:text-green-500 transition duration-300">Services</Link>
+							<Link to='/Status' class="py-4 px-20 text-2xl cursor-pointer hover:scale-125 text-white font-semibold hover:text-green-500 transition duration-300">Status</Link>
+							<Link to='/About' class="py-4 px-20 text-2xl cursor-pointer hover:scale-125 text-white font-semibold hover:text-green-500 transition duration-300">About</Link>
 						</div>
 					</div>
 				
@@ -63,24 +66,6 @@ export default function Header() {
 				});
 			</script> */}
 		</nav>
-
-        <section className='bg-purple-200 pt-10'>
-            <div className='grid grid-cols-2 '>
-                <div className=''>
-                    <div>
-                    <h1 className='text-5xl w-3/5 pt-10 pl-20 ' >Laundry & dry Cleaning Picked Up & delivered to Your door</h1>
-                    </div>
-                    <div className=' pl-52 pt-16'>
-                        <button className=' border-solid border-2 text-white border-green-400 bg-green-400 w-60 h-12 rounded-lg'> make a schedule</button>
-                    </div>
-                </div>
-                <div>
-                    <img className='w-5/6' src={imgOrang}></img>
-                </div>
-
-
-            </div>
-        </section>
     </>
   )
 }
